@@ -1,5 +1,12 @@
 package com.example.vo;
 
-public class MemberVO {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class MemberVO {
+	private String name, userid, gender, city;
 }
