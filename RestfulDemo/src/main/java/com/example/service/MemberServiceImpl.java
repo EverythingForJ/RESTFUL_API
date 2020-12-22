@@ -15,8 +15,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public void insertMember(MemberVO member) {
-		// TODO Auto-generated method stub
-
+		this.memberDao.create(member);
 	}
 
 	@Override
@@ -26,8 +25,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberVO selectMember(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.memberDao.read(userid);
 	}
 
 	@Override

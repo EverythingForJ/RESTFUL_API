@@ -15,8 +15,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public void create(MemberVO member) {
-		// TODO Auto-generated method stub
-
+		this.sqlSession.insert("Members.insert", member);
 	}
 
 	@Override
@@ -26,8 +25,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberVO read(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.sqlSession.selectOne("Members.selectMember", userid);
 	}
 
 	@Override

@@ -5,14 +5,14 @@
 <title>Welcome</title>
 <script src="js/jquery-3.5.1.js"></script>
 <script>
-	$(document).ready(function(){
+	$(function(){
 		$.ajax({
-			url : "/RestfulDemo/members",
+			url : "/members",
 			type : "GET",
-			dataType : "json",
+			dataType : "json",  //서버로부터 받아오는 데이터타입
 			success : function(data) {
 				var str = "";
-				var members = data.data;
+				var members = data.data;  //배열
 				for (var i = 0; i < members.length; i++) {
 					str += "<tr>";
 					var userid = members[i].userid;
@@ -30,7 +30,7 @@
 </head>
 <body>
 	<h1>Member List</h1>
-	<div style="text-align: center">
+	<div>
 		<a href="register.html">Member Add</a>
 	</div>
 	<table border="1">

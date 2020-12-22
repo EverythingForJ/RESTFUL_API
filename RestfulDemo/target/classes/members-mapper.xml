@@ -14,4 +14,13 @@
 		SELECT * FROM Member
 	</select>
 
+	<select id="selectMember" parameterType="String"
+		resultType="memberVO">
+		SELECT * FROM Member WHERE userid = #{userid}
+	</select>
+
+	<insert id="insert" parameterType="memberVO">
+		INSERT INTO Member(name, userid, gender, city)
+		VALUES(#{name}, #{userid}, #{gender}, #{city})
+	</insert>
 </mapper>
