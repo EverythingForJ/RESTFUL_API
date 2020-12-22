@@ -54,12 +54,29 @@ public class HomeController {
 	@RequestMapping(value = "/members", method = RequestMethod.POST)
 	@ResponseBody
 	public Map insert(@RequestBody MemberVO memberVO) {
-		//절대로 form 에서 submit하면 안됨.
-		//log.info(memberVO.toString());
+		// 절대로 form 에서 submit하면 안됨.
+		// log.info(memberVO.toString());
 		this.memberService.insertMember(memberVO);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("code", "success");
 		return map;
 	}
 
+	@RequestMapping(value = "/members", method = RequestMethod.PUT)
+	@ResponseBody
+	public Map update(@RequestBody MemberVO memberVO) {
+		this.memberService.updateMember(memberVO);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("code", "success");
+		return map;
+	}
+
+	@RequestMapping(value = "/members/{userid}", method = RequestMethod.DELETE)
+	@ResponseBody
+	public Map delete(@PathVariable String userid) {
+		this.memberService.deleteMember(userid);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("code", "success");
+		return map;
+	}
 }

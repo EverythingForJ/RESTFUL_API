@@ -30,14 +30,12 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public void update(MemberVO member) {
-		// TODO Auto-generated method stub
-
+		this.sqlSession.update("Members.update", member);
 	}
 
 	@Override
 	public void delete(String userid) {
-		// TODO Auto-generated method stub
-
+		this.sqlSession.delete("Members.delete", userid);
 	}
 
 }

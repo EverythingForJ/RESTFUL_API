@@ -20,7 +20,19 @@
 	</select>
 
 	<insert id="insert" parameterType="memberVO">
-		INSERT INTO Member(name, userid, gender, city)
+		INSERT INTO Member(name,
+		userid, gender, city)
 		VALUES(#{name}, #{userid}, #{gender}, #{city})
 	</insert>
+
+	<update id="update" parameterType="memberVO">
+		UPDATE Member SET name =
+		#{name}, gender = #{gender}, city = #{city}
+		WHERE userid = #{userid}
+	</update>
+
+	<delete id="delete" parameterType="String">
+		DELETE FROM Member WHERE userid = #{userid}
+	</delete>
+
 </mapper>
