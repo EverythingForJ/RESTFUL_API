@@ -16,7 +16,7 @@
 				for (var i = 0; i < members.length; i++) {
 					str += "<tr>";
 					var userid = members[i].userid;
-					str += "<td><a href='/static/view.html?userid=" + userid + "'>" + userid + "</a></td>" + "<td>"
+					str += "<td><a href='/view?userid=" + userid + "'>" + userid + "</a></td>" + "<td>"
 									+ members[i].name + "</td>" + "<td>"
 									+ members[i].gender + "</td>" + "<td>"
 									+ members[i].city + "</td>";
@@ -31,7 +31,7 @@
 <body>
 	<h1>Member List</h1>
 	<div>
-		<a href="register.html">Member Add</a>
+		<a href="register">Member Add</a>
 	</div>
 	<table border="1">
 		<thead>

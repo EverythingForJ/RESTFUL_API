@@ -36,7 +36,7 @@ public class RootConfig {
 		hikariConfig.setUsername(this.username);
 		hikariConfig.setPassword(this.password);
 		
-		HikariDataSource dataSource = new HikariDataSource(hikariConfig);		
+		HikariDataSource dataSource = new HikariDataSource(hikariConfig);
 		return dataSource;
 	}
 	
@@ -51,7 +51,8 @@ public class RootConfig {
 	
 	@Bean
 	public SqlSessionTemplate sqlSession() throws Exception{
-		SqlSessionTemplate sqlSession = new SqlSessionTemplate(this.sqlSessionFactory());
+		SqlSessionTemplate sqlSession = 
+				new SqlSessionTemplate(this.sqlSessionFactory());
 		return sqlSession;
 	}
 	

@@ -8,7 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.example.vo.MemberVO;
 
+import lombok.extern.java.Log;
+
 @Repository("memberDao")
+@Log
 public class MemberDaoImpl implements MemberDao {
 	@Autowired
 	private SqlSession sqlSession;
@@ -20,7 +23,9 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public List<MemberVO> readAll() {
-		return this.sqlSession.selectList("Members.select");
+		List<MemberVO> list = this.sqlSession.selectList("Members.select");
+		//log.info("갯수 = " + list.size());
+		return list;
 	}
 
 	@Override
@@ -30,14 +35,12 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public void update(MemberVO member) {
-		// TODO Auto-generated method stub
-
+		this.sqlSession.update("Members.update", member);
 	}
 
 	@Override
 	public void delete(String userid) {
-		// TODO Auto-generated method stub
-
+		this.sqlSession.delete("Members.delete", userid);
 	}
 
 }

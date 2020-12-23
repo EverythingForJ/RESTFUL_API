@@ -9,18 +9,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
-@ComponentScan(basePackages= {"com.example"})
-public class ServletConfig implements WebMvcConfigurer {
+@ComponentScan(basePackages = {"com.example"})
+public class ServletConfig implements WebMvcConfigurer{
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
-		// /WEB-INF/views/static/index.html.jsp
+		//   /static/    + index   + .html
 		InternalResourceViewResolver bean = new InternalResourceViewResolver();
 		bean.setViewClass(JstlView.class);
-		//bean.setPrefix("/WEB-INF/views/");
 		bean.setPrefix("/static/");
-		//bean.setSuffix(".jsp");
-		bean.setSuffix(".html");
 		registry.viewResolver(bean);
 	}
 	
